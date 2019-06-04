@@ -32,13 +32,11 @@ export class OneUserComponent implements OnInit {
     this.editUser();
   }
   saveUser(f: NgForm){
-    console.log(f.value);
     this.newUser= f.value;
     this.edit = false;
   }
   onClickUpdate(event: Event): void{
-    console.log(event)
-    event.stopPropagation();
+    // event.stopPropagation();
     this.clickUpdateUser.emit(this.newUser);
   }
 }
