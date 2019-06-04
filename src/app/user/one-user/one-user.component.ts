@@ -13,14 +13,13 @@ export class OneUserComponent implements OnInit {
   constructor(private userService: UserService) { }
   
   @Input () user: User;
-  @Output () clickUpdateUser = new EventEmitter<any>();
-  newUser={};
-  edit: boolean = false;
+  @Output () clickUpdateUser = new EventEmitter<User>();
+  newUser: User;
+  private edit: boolean = false;
 
   ngOnInit(): void{
     this.newUser={...this.user}
   }
-
   private deleteUser(id: number){
     this.userService.deleteU(id);
   }

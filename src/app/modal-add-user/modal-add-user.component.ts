@@ -24,7 +24,7 @@ export class ModalAddUserComponent implements OnInit {
     private userService: UserService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
   private addUser(): void{
     this.userService.addU(this.newUser).then(()=>{

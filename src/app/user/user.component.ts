@@ -13,11 +13,11 @@ export class UserComponent implements OnInit, OnDestroy {
   private users: any;
   private subscription: Subscription;
   
-  ngOnInit() {
+  ngOnInit(): void {
     this.getUsers();
     this.subscription = this.userService.getObservable().subscribe(i=>this.users=i);
   }
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
   private getUsers(): void{
