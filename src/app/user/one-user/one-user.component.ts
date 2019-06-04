@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from './../user.service';
 import { NgForm } from '@angular/forms';
-import { EventEmitter } from 'protractor';
 import { User } from '../user';
 
 @Component({
@@ -14,8 +13,8 @@ export class OneUserComponent implements OnInit {
   constructor(private userService: UserService) { }
   
   @Input () user: User;
-  @Output () clickUpdateUser = new EventEmitter ();
-  @Output () updateClickUser = new EventEmitter ();
+  @Output () clickUpdateUser = new EventEmitter<any>();
+  // @Output () updateClickUser = new EventEmitter<any>();
   newUser={};
   ngOnInit(){
     this.newUser={...this.user}
@@ -40,6 +39,6 @@ export class OneUserComponent implements OnInit {
   onClickUpdate(event: Event): void{
     console.log(event)
     event.stopPropagation();
-    this.clickUpdateUser.emit(JSON.stringify(this.newUser));
+    this.clickUpdateUser.emit(this.newUser);
   }
 }
