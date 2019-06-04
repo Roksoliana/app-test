@@ -1,0 +1,21 @@
+<div class="container">
+
+<h2> 
+  <span>User List</span>
+  <app-modal-add-user #userAction></app-modal-add-user>
+</h2>
+ <div class="row">
+    <div class="col-lg-2">First name</div>
+    <div class="col-lg-2">Last name</div>
+    <div class="col-lg-2">Email</div>
+    <div class="col-lg-2">Age</div>
+    <div class="col-lg-2">Action</div>
+ </div>
+  <hr>
+  <div *ngFor="let user of users">
+  <app-one-user [user]='user' (clickUpdateUser)="userAction.openModalUpdate($event)">
+  </app-one-user>
+  </div>  
+ 
+
+</div>

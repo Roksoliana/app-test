@@ -1,0 +1,24 @@
+<div class="row" *ngIf="!edit;else unset">
+    <div class="col-lg-2">{{newUser.name}}</div>
+    <div class="col-lg-2">{{newUser.surname}}</div>
+    <div class="col-lg-2">{{newUser.email}}</div>
+    <div class="col-lg-2">{{newUser.age}}</div>
+    <div class="field col-lg-2">
+      <button class="btn btn-warning" (click)="editUser()">&#9998;</button>
+      <button class="btn btn-success" (click)="onClickUpdate()">&#9997;</button>
+      <button class="btn btn-success" (click)="updateClickUser.emit(newUser)"></button>
+    
+      <button class="btn btn-danger" (click)="deleteUser(user.id)">&#9747;</button>
+    </div>
+</div>
+<ng-template #unset> 
+  <form #f="ngForm">
+    <input type="text" [(ngModel)]=newUser.name name="name">
+    <input type="text" [(ngModel)]=newUser.surname name="surname">
+    <input type="email" [(ngModel)]=newUser.email name="email">
+    <input type="number" [(ngModel)]=newUser.age name="age">
+    <button class="btn btn-success" (click)="saveUser(f)">&#10004;</button>
+    <button class="btn btn-danger" (click)="canselUser()">&#10006;</button>
+  </form>
+  
+</ng-template>

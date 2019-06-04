@@ -1,0 +1,32 @@
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { UserService } from './user.service';
+import { Subscription } from 'rxjs';
+
+@Component({
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
+})
+export class UserComponent implements OnInit, OnDestroy {
+  
+  constructor(private userService: UserService) { }
+  private users: any;
+  private subscription: Subscription;
+  //  @Output () clickUpdateUser = new EventEmitter ();
+  //  @Output () updateClickUser = new EventEmitter ();
+  ngOnInit() {
+    this.getUsers();
+    this.subscription = this.userService.getObservable().subscribe(i=>this.users=i);
+
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+  private getUsers(): void{
+    this.userService.getU().then(i=>this.users=i);
+  }
+  // onClickUpdate(event: Event, user){
+  //   event.stopPropagation();
+  //   this.clickUpdateUser.emit(user);
+  // }
+}

@@ -1,0 +1,10 @@
+label{
+    width: 125px;
+}
+.form-group{
+    width: 100%;
+}
+.form-group .btn{
+    margin: 10px auto;
+    width: 150px;
+}

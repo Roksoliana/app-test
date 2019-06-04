@@ -1,0 +1,41 @@
+<button (click)="openModal(myModal)" class="btn btn-primary">&#10010;</button>
+  <ng-template #myModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">{{ modalAttributes.title }}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+  <form #f="ngForm" (ngSubmit)="onSubmit()" class="form-inline">
+    <div class="form-group">
+      <label for="nameInput">
+        Name:
+      </label>
+      <input type="text" id="nameInput" [(ngModel)]="newUser.name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="surnameInput">
+        Surname:
+      </label>
+      <input type="text" id="surnameInput" [(ngModel)]="newUser.surname" name="surname">
+    </div>
+    <div class="form-group">
+      <label for="emailInput">
+        Email:
+      </label>
+      <input type="email" id="emailInput" [(ngModel)]="newUser.email" name="email">
+      </div>
+    <div class="form-group">
+      <label for="ageInput">
+        Number:
+      </label>
+      <input type="number" id="ageInput" [(ngModel)]="newUser.age" name="age">
+    </div>
+    <div class="form-group">
+      <button type="submit" [ngClass]="['btn', modalAttributes.btnClass]">{{ modalAttributes.btnCaption }}</button>
+    </div>
+</form>
+</div>
+</ng-template>
+
