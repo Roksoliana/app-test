@@ -12,12 +12,10 @@ export class UserComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) { }
   private users: any;
   private subscription: Subscription;
-  //  @Output () clickUpdateUser = new EventEmitter ();
-  //  @Output () updateClickUser = new EventEmitter ();
+  
   ngOnInit() {
     this.getUsers();
     this.subscription = this.userService.getObservable().subscribe(i=>this.users=i);
-
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -25,8 +23,4 @@ export class UserComponent implements OnInit, OnDestroy {
   private getUsers(): void{
     this.userService.getU().then(i=>this.users=i);
   }
-  // onClickUpdate(event: Event, user){
-  //   event.stopPropagation();
-  //   this.clickUpdateUser.emit(user);
-  // }
 }

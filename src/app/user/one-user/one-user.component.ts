@@ -14,29 +14,28 @@ export class OneUserComponent implements OnInit {
   
   @Input () user: User;
   @Output () clickUpdateUser = new EventEmitter<any>();
-  // @Output () updateClickUser = new EventEmitter<any>();
   newUser={};
-  ngOnInit(){
-    this.newUser={...this.user}
-  }  
   edit: boolean = false;
+
+  ngOnInit(): void{
+    this.newUser={...this.user}
+  }
 
   private deleteUser(id: number){
     this.userService.deleteU(id);
   }
-  editUser(){
+  private editUser(): void{
     this.edit = !this.edit;
   }
-  canselUser(){
+  private canselUser(): void{
     this.newUser={...this.user}
     this.editUser();
   }
-  saveUser(f: NgForm){
-    this.newUser= f.value;
-    this.edit = false;
+  private saveUser(): void{
+    this.userService.update(this.newUser);
+    this.editUser();
   }
-  onClickUpdate(event: Event): void{
-    // event.stopPropagation();
+  public onClickUpdate(): void{
     this.clickUpdateUser.emit(this.newUser);
   }
 }
