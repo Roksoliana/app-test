@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { InputComponent } from '../modal-add-user/input/input.component';
+import { InputComponent } from '../user/modal-add-user/input/input.component';
 
 @NgModule({
   declarations: [
