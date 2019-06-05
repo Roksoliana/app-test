@@ -53,6 +53,7 @@ export class InputComponent implements OnInit, OnChanges {
     });
   }
   onSubmit(event: Event): void {
+    console.log(this.userForm.value)
     event.stopPropagation();
     const user: User = Object.assign({}, this.userForm.value);
     this.clickSubmit.emit(user);
