@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, TemplateRef, Inject, Input } from '@angular/core';
 import { NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { UserService } from '../user/user.service';
-import { User } from '../user/user';
+import { UserService } from '../user.service';
+import { User } from '../user';
 import { ActionConfig } from './action/action.config.interface';
 import { modalAction, modalActionConfig } from './action/action.constants';
 

@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
+
 import { OneUserComponent } from './one-user.component';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     OneUserComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule,
+    SharedModule
   ],
   exports: [
     OneUserComponent

@@ -5,16 +5,13 @@
     <div class="col-lg-2">{{newUser.age}}</div>
     <div class="field col-lg-2">
       <button class="btn btn-warning" (click)="editUser()">&#9998;</button>
-      <button class="btn btn-success" (click)="onClickUpdate()">&#9997;</button>
+      <button class="btn btn-success" (click)="onClickUpdate($event)">&#9997;</button>
       <button class="btn btn-danger" (click)="deleteUser(user.id)">&#9747;</button>
     </div>
 </div>
 <ng-template #unset> 
   <form #f="ngForm">
-    <input type="text" [(ngModel)]=newUser.name name="name">
-    <input type="text" [(ngModel)]=newUser.surname name="surname">
-    <input type="email" [(ngModel)]=newUser.email name="email">
-    <input type="number" [(ngModel)]=newUser.age name="age">
+    <app-input [newUser]='newUser' [edit]='edit'></app-input>
     <button class="btn btn-success" (click)="saveUser()">&#10004;</button>
     <button class="btn btn-danger" (click)="canselUser()">&#10006;</button>
   </form>
