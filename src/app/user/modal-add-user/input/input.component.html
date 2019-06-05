@@ -1,24 +1,32 @@
-  <div [class]="edit ? 'inline':'form-group'">
-    <label for="nameInput" [class]="edit ? 'none':'inline'">
-      Name:
-    </label>
-    <input type="text" id="nameInput" [(ngModel)]="newUser.name" name="name">
-  </div>
-  <div [class]="edit ? 'inline':'form-group'">
-    <label for="surnameInput" [class]="edit ? 'none':'inline'">
-      Surname:
-    </label>
-    <input type="text" id="surnameInput" [(ngModel)]="newUser.surname" name="surname">
-  </div>
-  <div [class]="edit ? 'inline':'form-group'">
-    <label for="emailInput" [class]="edit ? 'none':'inline'">
-      Email:
-    </label>
-    <input type="email" id="emailInput" [(ngModel)]="newUser.email" name="email">
-    </div>
-  <div [class]="edit ? 'inline':'form-group'">
-    <label for="ageInput" [class]="edit ? 'none':'inline'">
-      Number:
-    </label>
-    <input type="number" id="ageInput" [(ngModel)]="newUser.age" name="age">
-  </div>
+<div [formGroup]="userForm">
+  
+     <div [class]="edit ? 'inline':'form-group'">
+       <label for="nameInput" [class]="edit ? 'none':'inline'">
+         Name:
+       </label>
+       <input type="text" id="nameInput" formControlName="name">
+     </div>
+     <div [class]="edit ? 'inline':'form-group'">
+       <label for="surnameInput" [class]="edit ? 'none':'inline'">
+         Surname:
+       </label>
+       <input type="text" id="surnameInput" formControlName="surname">
+     </div>
+     <div [class]="edit ? 'inline':'form-group'">
+       <label for="emailInput" [class]="edit ? 'none':'inline'">
+         Email:
+       </label>
+       <input type="email" id="emailInput" formControlName="email">
+       </div>
+     <div [class]="edit ? 'inline':'form-group'">
+       <label for="ageInput" [class]="edit ? 'none':'inline'">
+         Number:
+       </label>
+       <input type="number" id="ageInput" formControlName="age">
+     </div>
+
+</div>
+
+<p>
+  Form Status: {{ userForm.status }}
+</p>
