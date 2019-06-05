@@ -10,7 +10,7 @@
     </div>
 </div>
 <ng-template #unset> 
-  <form #f="ngForm">
+  <form (ngSubmit)="onSubmit()">
     <app-input [newUser]='newUser' [edit]='edit'></app-input>
     <button class="btn btn-success" (click)="saveUser()">&#10004;</button>
     <button class="btn btn-danger" (click)="canselUser()">&#10006;</button>

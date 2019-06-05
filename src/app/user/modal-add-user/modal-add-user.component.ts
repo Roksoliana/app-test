@@ -48,7 +48,14 @@ export class ModalAddUserComponent implements OnInit {
     this.modalAttributes = {
       title: 'Update User',
       btnCaption: 'Update',
-      btnClass: 'btn-warning'
+      btnClass: 'btn-warning',
+      firstnamePlaceholder: 'Firstname',
+      surnamePlaceholder: 'Surname',
+      emailPlaceholder: 'Email',
+      agePlaceholder: '0',
+      firstnameMinLength: 3,
+      firstnameMaxLength: 10,
+      ageMin: 0
     }
     this.modalRef = this.modalService.open(this.myModal, {backdrop: 'static'});
   }
