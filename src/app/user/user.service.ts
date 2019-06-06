@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
+import { environment as env } from '../../environments/environment';
 import { User } from './user';
 
 @Injectable({
@@ -7,9 +9,10 @@ import { User } from './user';
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
   subject = new Subject();
   private lastId: number = 5;
+  private headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json' );
   private users: User[] =[
     {name: "User1", surname: "User-1", email: "some1@mail.com", age: 25, id:1},
     {name: "User2", surname: "User-2", email: "some2@mail.com", age: 26, id:2},
@@ -18,28 +21,20 @@ export class UserService {
     {name: "User5", surname: "User-5", email: "some5@mail.com", age: 29, id:5}    
   ];
   public getU(){
-    return new Promise(i => i(this.users));
+    return this.http.get(env.apiUrl);
   }
-  public addU(val:any){
-    return new Promise(resolve => {
-      this.lastId ++;
-      val.id = this.lastId;
-      this.users =[...this.users, val];
-      this.subject.next(this.users);
-      resolve(val);
+  addU(user: User): Observable<User> {
+    return this.http.post<User>(env.apiUrl, user, {
+      headers: this.headers
     });
   }
-  public update(user: User): Promise<User> {
-    return new Promise(() => {
-      this.users = this.users.map(oldUser => oldUser.id === user.id ? user : oldUser);
-      this.subject.next(this.users);
+  public updateU(user: User): Observable<User> {
+    return this.http.put<User>(env.apiUrl, user, {
+      headers: this.headers
     });
   }
-  public deleteU(id:number){
-    return new Promise(()=>{
-      this.users = this.users.filter(i => i.id !== id);
-      this.subject.next(this.users);
-    });
+  public deleteU(id:number): Observable<User>{
+    return this.http.delete<User>(`${env.apiUrl}/${id}`);
   }
   getObservable(): Observable<any> {
     return this.subject.asObservable();

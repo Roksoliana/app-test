@@ -21,6 +21,7 @@ export class UserComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
   private getUsers(): void{
-    this.userService.getU().then(i=>this.users=i);
+    this.userService.getU()
+    .subscribe(users => this.users = users);
   }
 }

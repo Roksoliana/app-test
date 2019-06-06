@@ -26,7 +26,8 @@ export class OneUserComponent implements OnInit {
     this.newUser = {...this.user};
   }
   private deleteUser(id: number){
-    this.userService.deleteU(id);
+    this.userService.deleteU(id)
+      .subscribe();
   }
   private editUser(): void{
     this.edit = !this.edit;
@@ -36,11 +37,10 @@ export class OneUserComponent implements OnInit {
     this.editUser();
   }
   private saveUser(): void{
-    this.userService.update(this.newUser);
+    this.userService.updateU(this.newUser).subscribe();
     this.editUser();
   }
   public onClickUpdate(e: Event): void{
-    console.log(e);
     e.stopPropagation();
     this.clickUpdateUser.emit(this.newUser);
   }
