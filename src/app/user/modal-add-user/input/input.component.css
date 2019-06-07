@@ -13,3 +13,8 @@ input{
 .none{
     display: none;
 }
+.alert-danger{
+    padding: 5px;
+    margin: 0;
+    width: 100px;
+}

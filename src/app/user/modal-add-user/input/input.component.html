@@ -2,20 +2,50 @@
     <label for="nameInput" [class]="edit ? 'none':'inline'">
       Name:
     </label>
-    <input type="text" id="nameInput" [(ngModel)]="newUser.name" name="name">
+    <input type="text" id="nameInput" [(ngModel)]="newUser.name" name="name" 
+           #name="ngModel" required minlength="3" maxlength="10">
+    <div *ngIf="name.errors && (name.dirty || name.touched)"
+    class="alert alert-danger">
+      <div [hidden]="!name.errors.required">
+        Required
+      </div>
+      <div [hidden]="!name.errors.minlength">
+        At least 3 characters
+      </div>
+    </div>
   </div>
   <div [class]="edit ? 'inline':'form-group'">
     <label for="surnameInput" [class]="edit ? 'none':'inline'">
       Surname:
     </label>
-    <input type="text" id="surnameInput" [(ngModel)]="newUser.surname" name="surname">
+    <input type="text" id="surnameInput" [(ngModel)]="newUser.surname" name="surname" 
+           #surname="ngModel" required minlength="3" maxlength="10">
+    <div *ngIf="surname.errors && (surname.dirty || surname.touched)" class="alert alert-danger">
+      <div [hidden]="!surname.errors.required">
+        Required
+      </div>
+      <div [hidden]="!surname.errors.minlength">
+        At least 3 characters
+      </div>
+    </div>
   </div>
+
   <div [class]="edit ? 'inline':'form-group'">
     <label for="emailInput" [class]="edit ? 'none':'inline'">
       Email:
     </label>
-    <input type="email" id="emailInput" [(ngModel)]="newUser.email" name="email">
+    <input type="email" id="emailInput" [(ngModel)]="newUser.email" name="email" 
+           #email="ngModel" email required>
+    <div *ngIf="email.errors && (email.dirty || email.touched)"
+    class="alert alert-danger">
+      <div [hidden]="!email.errors.required">
+        Required
+      </div>
+      <div [hidden]="!email.errors.email">
+        Email is wrong!
+      </div>
     </div>
+  </div>
   <div [class]="edit ? 'inline':'form-group'">
     <label for="ageInput" [class]="edit ? 'none':'inline'">
       Number:
