@@ -18,7 +18,7 @@ export class OneUserComponent implements OnInit {
 
   newUser: User;
   private edit: boolean = false;
-
+  
   ngOnInit(): void{
     this.getUser();
   }
@@ -35,8 +35,8 @@ export class OneUserComponent implements OnInit {
     this.getUser();
     this.editUser();
   }
-  private saveUser(): void{
-    this.userService.update(this.newUser);
+  private saveUser(u): void{
+    this.userService.update(u);
     this.editUser();
   }
   public onClickUpdate(e: Event): void{

@@ -7,10 +7,12 @@
       </button>
     </div>
     <div class="modal-body">
-  <form (ngSubmit)="onSubmit()" class="form-inline">
-    <app-input [newUser]='newUser' [formAttributes]="modalAttributes" (clickSubmit)="onSubmit($event)"></app-input>
+  <form (ngSubmit)="onSubmit($event)" class="form-inline">
+    <app-input [newUser]='newUser' [formAttributes]="modalAttributes" #input></app-input>
     <div class="form-group">
-      <button type="submit" [ngClass]="['btn', modalAttributes.btnClass]">{{ modalAttributes.btnCaption }}</button>
+      <button type="submit" [ngClass]="['btn', modalAttributes.btnClass]" (click)="input.onSubmit()">
+      <!-- (click)="input.onSubmit($event)" -->
+      {{ modalAttributes.btnCaption }}</button>
     </div>
 </form>
 </div>

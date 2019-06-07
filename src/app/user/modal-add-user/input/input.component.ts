@@ -13,7 +13,7 @@ export class InputComponent implements OnInit, OnChanges {
   @Input() newUser: User;
   @Input() edit: boolean;
   @Input() formAttributes: ActionConfig;
-  @Output('clickSubmit') clickSubmit: EventEmitter<User> = new EventEmitter();
+  @Output('ngSubmit') clickSubmit: EventEmitter<User> = new EventEmitter();
 
   public userForm: FormGroup;
   constructor(private formbuilder: FormBuilder) { }
@@ -47,15 +47,15 @@ export class InputComponent implements OnInit, OnChanges {
         Validators.pattern('[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}')
       ]),
       age: new FormControl(this.newUser.age, [
-        // minNumberValidator(this.formAttributes.ageMin)
+        Validators.required,
       ]),
       id: new FormControl(undefined),
     });
   }
-  onSubmit(event: Event): void {
-    console.log(this.userForm.value)
-    event.stopPropagation();
+  onSubmit(event: Event): void {    
+    // event.stopPropagation();
     const user: User = Object.assign({}, this.userForm.value);
+    console.log(user);
     this.clickSubmit.emit(user);
   }
 }

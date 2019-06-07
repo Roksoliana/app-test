@@ -26,13 +26,16 @@ export class ModalAddUserComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  private addUser(): void{
-    this.userService.addU(this.newUser).then(()=>{
+  private addUser(user): void{
+    // console.log(user);
+    // console.log(this.myModal)
+    this.userService.addU(user).then(()=>{
      this.modalRef.close();
     });
   }
-  updateUser(): void {
-    this.userService.update(this.newUser);
+  updateUser(user): void {
+    console.log(user);
+    this.userService.update(user);
     this.modalRef.close();
   }
   openModal(template: TemplateRef<any>): void {

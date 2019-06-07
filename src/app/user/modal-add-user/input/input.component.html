@@ -1,9 +1,10 @@
-<form novalidate (ngSubmit)="onSubmit()" [formGroup]="userForm">  
+<form [formGroup]="userForm">  
      <div [class]="edit ? 'inline':'form-group'">
        <label for="nameInput" [class]="edit ? 'none':'inline'">
          Name:
        </label>
-       <input type="text" id="nameInput" formControlName="name" [placeholder]="formAttributes.firstnamePlaceholder">
+       <input type="text" id="nameInput" formControlName="name">
+        <!-- [placeholder]="formAttributes.firstnamePlaceholder"> -->
         <div *ngIf="userForm.get('name').errors && (userForm.get('name').dirty || userForm.get('name').touched)">
           <div [hidden]="!userForm.get('name').hasError('required')" class="alert alert-danger inline">
             Required
@@ -20,7 +21,8 @@
        <label for="surnameInput" [class]="edit ? 'none':'inline'">
          Surname:
        </label>
-       <input type="text" id="surnameInput" formControlName="surname" [placeholder]="formAttributes.surnamePlaceholder">
+       <input type="text" id="surnameInput" formControlName="surname">
+        <!-- [placeholder]="formAttributes.surnamePlaceholder"> -->
         <div *ngIf="userForm.get('surname').errors && (userForm.get('surname').dirty || userForm.get('surname').touched)">
           <div [hidden]="!userForm.get('surname').hasError('required')" class="alert alert-danger inline">
             Required
@@ -37,7 +39,8 @@
        <label for="emailInput" [class]="edit ? 'none':'inline'">
          Email:
        </label>
-       <input type="email" id="emailInput" formControlName="email" [placeholder]="formAttributes.emailPlaceholder">
+       <input type="email" id="emailInput" formControlName="email">
+        <!-- [placeholder]="formAttributes.emailPlaceholder"> -->
         <div *ngIf="userForm.get('email').errors && (userForm.get('email').dirty || userForm.get('email').touched)">
           <div [hidden]="!userForm.get('email').hasError('required')" class="alert alert-danger inline">
             Required
@@ -52,9 +55,9 @@
        <label for="ageInput" [class]="edit ? 'none':'inline'">
          Number:
        </label>
-       <input type="number" id="ageInput" formControlName="age" [placeholder]="formAttributes.agePlaceholder">
+       <input type="number" id="ageInput" formControlName="age">
+        <!-- [placeholder]="formAttributes.agePlaceholder"> -->
      </div>
-
 </form>
 
 <p>

@@ -11,8 +11,8 @@
 </div>
 <ng-template #unset> 
   <form #f="ngForm">
-    <app-input [newUser]='newUser' [edit]='edit'></app-input>
-    <button class="btn btn-success" (click)="saveUser()">&#10004;</button>
+    <app-input [newUser]='newUser' [edit]='edit' [formAttributes]="modalAttributes" #input></app-input>
+    <button class="btn btn-success" (clickSubmit)="saveUser($event)">&#10004;</button>
     <button class="btn btn-danger" (click)="canselUser()">&#10006;</button>
   </form>
 </ng-template>
