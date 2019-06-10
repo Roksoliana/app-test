@@ -6,11 +6,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { InputComponent } from '../user/modal-add-user/input/input.component';
 import { FilterPipe } from '../filter.pipe';
+import { MinNumberValidatorDirective } from '../min-number-validator.directive';
 
 @NgModule({
   declarations: [
     InputComponent,
-    FilterPipe
+    FilterPipe,
+    MinNumberValidatorDirective
   ],
   exports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { FilterPipe } from '../filter.pipe';
     ReactiveFormsModule,
     NgbModule,
     InputComponent,
-    FilterPipe
+    FilterPipe,
+    MinNumberValidatorDirective
   ],
   imports: [
     FormsModule,

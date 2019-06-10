@@ -48,7 +48,14 @@
     <label for="ageInput" [class]="edit ? 'none':'inline'">
       Number:
     </label>
-    <input type="number" id="ageInput" [(ngModel)]="newUser.age" name="age">
+    <input type="number" id="ageInput" [(ngModel)]="newUser.age" name="age" appMinNumber="0" required>
+    <!-- <div *ngIf="age.errors && (age.dirty || age.touched)"
+    class="alert alert-danger">
+      <div [hidden]="!age.minNumber">
+        Negative age!
+      </div>
+    </div> -->
+   
   </div>
   <p>Validation: {{a.valid}}</p>
 </form>
