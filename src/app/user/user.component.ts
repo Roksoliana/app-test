@@ -12,6 +12,7 @@ export class UserComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) { }
   private users: any;
   private subscription: Subscription;
+  private nrSelect: string = 'name';
   
   ngOnInit(): void {
     this.getUsers();

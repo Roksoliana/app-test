@@ -12,7 +12,14 @@
     <div class="col-lg-2">Action</div>
  </div>
   <hr>
-  <div *ngFor="let user of users">
+  <input type="text" placeholder="filter tasks" #todosInput class="form-control">
+  <select [(ngModel)]="nrSelect"  class="form-control">
+    <option value="name">First name</option>
+    <option value="surname">Last name</option>
+    <option value="email">Email</option>
+    <option value="age">Age</option>
+  </select>
+  <div *ngFor="let user of (users | filterPipe:todosInput.value: nrSelect)">
   <app-one-user [user]='user' (clickUpdateUser)="userAction.openModalUpdate($event)">
   </app-one-user>
   </div>  

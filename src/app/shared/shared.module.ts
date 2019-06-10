@@ -5,10 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { InputComponent } from '../user/modal-add-user/input/input.component';
+import { FilterPipe } from '../filter.pipe';
 
 @NgModule({
   declarations: [
-    InputComponent
+    InputComponent,
+    FilterPipe
   ],
   exports: [
     CommonModule,
@@ -16,6 +18,7 @@ import { InputComponent } from '../user/modal-add-user/input/input.component';
     ReactiveFormsModule,
     NgbModule,
     InputComponent,
+    FilterPipe
   ],
   imports: [
     FormsModule,

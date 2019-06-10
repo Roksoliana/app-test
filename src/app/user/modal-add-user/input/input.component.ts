@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from 'src/app/user/user';
 
 @Component({
@@ -10,6 +10,8 @@ export class InputComponent implements OnInit {
 
   @Input() newUser: User;
   @Input() edit: boolean;
+
+  @Output() validatin = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
