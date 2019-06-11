@@ -10,7 +10,7 @@
   <form #f="ngForm" (ngSubmit)="onSubmit()" class="form-inline">
     <app-input [newUser]='newUser'></app-input>
     <div class="form-group">
-      <button type="submit" [ngClass]="['btn', modalAttributes.btnClass]" [disabled]="!f.form.valid">{{ modalAttributes.btnCaption }}</button>
+      <button type="submit" [ngClass]="['btn', modalAttributes.btnClass]">{{ modalAttributes.btnCaption }}</button>
     </div>
   </form>
 </div>
